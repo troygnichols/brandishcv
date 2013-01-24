@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brandish Your CV</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= yield :extra_stylesheets %>
+  <%= javascript_include_tag "application" %>
+  <%= yield :extra_scripts %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="navbar-links">
+        <% if yield(:header).blank? %>
+            <%= render 'layouts/header' %>
+        <% else %>
+            <%= yield :header %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <%= yield(:inline_script) %>
+</body>
+</html>

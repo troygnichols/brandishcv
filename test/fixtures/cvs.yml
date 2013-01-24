@@ -1,0 +1,16 @@
+
+bruce_lee_current:
+  user: bruce_lee
+  markdown: Current CV
+  created_at: <%= DateTime.now %>
+
+bruce_lee_2_days_ago:
+  user: bruce_lee
+  markdown: CV from 2 days ago
+  created_at: <%= 2.days.ago %>
+
+bruce_lee_3_days_ago:
+  user: bruce_lee
+  markdown: CV from 3 days ago
+  created_at: <%= 3.days.ago %>
+  

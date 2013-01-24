@@ -1,0 +1,32 @@
+# real digest for the password: 'trustno1hunter2'
+<% pwd_digest = "$2a$10$4iPxO7qUdOcP2sTR1diz7OaacKMSYqbwXsec5Sr6YWu59r/Ek6d12" %>
+
+bruce_lee:
+  admin: false
+  username: brucelee
+  email: bruce@jkd.org
+  password_digest: <%= pwd_digest %>
+
+ip_man:
+  admin: false
+  username: ipman
+  email: ip@wingchun.org
+  password_digest: <%= pwd_digest %>
+
+chuck_norris:
+  admin: false
+  username: chuck
+  email: chuck@deltaforce.gov
+  password_digest: <%= pwd_digest %>
+
+jackie_chan:
+  admin: false
+  username: jackiechan
+  email: jackie@drunkenmasters.com
+  password_digest: <%= pwd_digest %>
+
+admin:
+  admin: true
+  username: admin
+  email: admin@brandishcv.net
+  password_digest: <%= pwd_digest %>

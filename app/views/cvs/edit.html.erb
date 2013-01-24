@@ -1,0 +1,30 @@
+<h2>Edit CV for <%= @user %></h2>
+
+<%= form_for @cv, url: update_cv_path(@user.username) do |f| %>
+    <div class="wmd-panel">
+      <div id="wmd-button-bar"></div>
+      <%= f.text_area :markdown, id: 'wmd-input', class: 'wmd-input' %>
+      <span id="cv-save"><%= f.submit value: 'Save', class: 'btn btn-small' %></span>
+      <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+    </div>
+<% end %>
+
+<%= content_for :extra_stylesheets do %>
+    <%= stylesheet_link_tag 'wmd/wmd' %>
+<% end %>
+
+<%= content_for :extra_scripts do %>
+    <%= javascript_include_tag 'wmd/Markdown.Converter' %>
+    <%= javascript_include_tag 'wmd/Markdown.Sanitizer' %>
+    <%= javascript_include_tag 'wmd/Markdown.Editor' %>
+<% end %>
+
+<%= content_for :inline_script do %>
+    <script type="text/javascript">
+        (function() {
+            var converter = Markdown.getSanitizingConverter();
+            var editor = new Markdown.Editor(converter);
+            editor.run();
+        })();
+    </script>
+<% end %>

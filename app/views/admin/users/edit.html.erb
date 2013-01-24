@@ -1,0 +1,38 @@
+<h2>Edit User</h2>
+
+<%= render 'form' %>
+
+<%= content_for :inline_script do %>
+    <script type="text/javascript">
+      $(function() {
+          var changePwd = $('<div class="change-password">');
+          changePwd.append($('<input name="change_password" type="checkbox">'));
+          changePwd.append('Change password?');
+          $('#user_password').before(changePwd);
+
+          $('.change-password input[type=checkbox]').click(setChangePasswordState);
+
+          <% if params[:change_password] %>
+          $('.change-password input[type=checkbox]').prop('checked', 'checked');
+          <% end %>
+
+          setChangePasswordState();
+
+          function setChangePasswordState() {
+              if ($('.change-password input[type=checkbox]').prop('checked')) {
+                  enablePasswordFields();
+              } else {
+                  disablePasswordFields();
+              }
+          }
+
+          function enablePasswordFields() {
+              $('#user_password,#user_password_confirmation').enable();
+          }
+
+          function disablePasswordFields() {
+              $('#user_password,#user_password_confirmation').disable();
+          }
+      });
+    </script>
+<% end %>

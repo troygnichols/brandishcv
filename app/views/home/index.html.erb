@@ -1,0 +1,24 @@
+<% unless logged_in? %>
+    <%= content_for :header do %>
+        <div class="container returning-users-login">
+          <span class="login-label">Have an account?</span>
+          <%= form_tag admin_login_path do %>
+              <input type="text" name="username_or_email" placeholder="Username or email"/>
+              <input type="password" name="password" placeholder="Password"/>
+              <input type="submit" value="Login" class="btn btn-small"/>
+          <% end %>
+        </div>
+    <% end %>
+<% end %>
+
+<div class="home-container">
+  <h2>Welcome to brandishcv.net</h2>
+
+  <p>You can post your CV or resume here and everyone can see it.</p>
+
+  <p><%= link_to 'Get Started Now!', new_admin_user_path, class: "btn btn-large" %></p>
+
+  <%# TODO: should randomly select a user to show %>
+  <p><%= link_to 'See an example...', show_cv_path('troynichols') %></p>
+</div>
+

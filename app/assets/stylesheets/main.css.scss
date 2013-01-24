@@ -1,0 +1,55 @@
+body {
+  padding-top: 60px;
+}
+
+.navbar-inner {
+  color: #999999;
+}
+
+.navbar-inner .returning-users-login {
+  margin: 0 auto;
+  width: 700px;
+}
+
+.navbar-inner .returning-users-login {
+  margin: 0 auto;
+  width: 700px;
+}
+
+.navbar-inner .returning-users-login form {
+  display: inline;
+}
+
+.navbar-inner .returning-users-login form input {
+  margin-top: 7px;
+  width: 200px;
+}
+
+.navbar-inner .returning-users-login input[type=submit] {
+  margin-top: 0;
+  width: 75px;
+}
+
+.navbar-inner .navbar-links {
+  margin-top: 9px;
+  margin-left: 10px;
+}
+
+.navbar-inner .session-container {
+  float: right;
+  margin-right: 20px;
+}
+
+
+table.resources {
+  width: 100%;
+}
+
+table.resources, table.resources th, table.resources td {
+  padding: 5px 5px 5px 5px;
+  border: 1px solid #666;
+}
+
+table.resources th.actions {
+  width: 140px;
+}
