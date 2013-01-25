@@ -37,3 +37,6 @@ public/system/uploads
 
 # Ignore compiled assets
 public/assets
+
+# ignore development and test databases
+db/*.sqlite3

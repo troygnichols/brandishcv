@@ -12,11 +12,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="navbar-links">
-        <% if yield(:header).blank? %>
-            <%= render 'layouts/header' %>
-        <% else %>
-            <%= yield :header %>
-        <% end %>
+        <%= render 'layouts/header' %>
       </div>
     </div>
   </div>
