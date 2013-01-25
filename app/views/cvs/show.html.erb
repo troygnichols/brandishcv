@@ -1,5 +1,7 @@
-<%= content_for :extra_nav do %>
-    | <%= link_to 'Edit CV', edit_cv_path(current_user.username) %>
+<% if logged_in? %>
+    <%= content_for :extra_nav do %>
+        | <%= link_to 'Edit CV', edit_cv_path(current_user.username) %>
+    <% end %>
 <% end %>
 
 <% if @cv.nil? %>

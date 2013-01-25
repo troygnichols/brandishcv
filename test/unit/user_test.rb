@@ -7,7 +7,12 @@ class UserTest < ActiveSupport::TestCase
 
   test "create user" do
     assert_difference 'User.count', +1 do
-      User.new(username: 'donvanvliet', email: 'captain.beefheart@magicband.net').save!
+      User.new(
+          username: 'donvanvliet',
+          email: 'captain.beefheart@magicband.net',
+          password: 'mypassword',
+          password_confirmation: 'mypassword'
+      ).save!
     end
   end
 

@@ -3,11 +3,12 @@
 Example rails app for displaying your credentials in public, for when it's time to go around begging for a job.
 
 ### Where it's at
-http://50.19.119.221/
+http://brandishcv.net
 
 ### What it does
 
-Really simple.  Lets you put your CV on a website where everyone can see it.  Anybody can read anybody else's CV, but (of course) you can only edit your own.
+Really simple.  Lets you put your CV on a website where everyone can see it.
+Anybody can read anybody else's CV, but (of course) you can only edit your own.
 
 ### How to use it
 
