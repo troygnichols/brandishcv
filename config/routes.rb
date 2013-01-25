@@ -7,6 +7,7 @@ Brandishcv::Application.routes.draw do
     match 'login' => 'sessions#new', via: :get
     match 'login' => 'sessions#create', as: 'login'
     match 'logout' => 'sessions#destroy', as: 'logout'
+    match 'pages/:page' => 'pages#show'
   end
 
   root :to => 'home#index'
