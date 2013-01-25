@@ -2,7 +2,7 @@
 <% if @cv.nil? %>
   <div class="no-cv">
     <% if @user == current_user  %>
-        You haven't created your yet.  <%= link_to 'Create it now', edit_cv_path(@user.username) %>
+        You haven't created your CV yet.  <%= link_to 'Create it now', edit_cv_path(@user.username) %>
     <% else %>
         This user has not created their CV yet.  Check back soon!
     <% end %>
