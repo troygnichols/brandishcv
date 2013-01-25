@@ -11,7 +11,7 @@ Really simple.  Lets you put your CV on a website where everyone can see it.  An
 
 ### How to use it
 
-1. Go to the home page [home page][1] and click "Get Started" to create an account
+1. Go to the [home page][1] and click "Get Started" to create an account
 2. Click 'Edit your CV'
 3. Type in some markdown
 4. Click save.

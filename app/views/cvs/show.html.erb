@@ -1,3 +1,6 @@
+<%= content_for :extra_nav do %>
+    | <%= link_to 'Edit CV', edit_cv_path(current_user.username) %>
+<% end %>
 
 <% if @cv.nil? %>
   <div class="no-cv">
