@@ -102,4 +102,30 @@ class UserTest < ActiveSupport::TestCase
     refute @user.save
     assert_error_on @user, "Admin status cannot be changed!"
   end
+
+  test "update_cv creates new 'revision' when no previous cvs present" do
+    Cv.delete_all
+    assert_equal 0, @user.cvs.count
+    assert_nil @user.current_cv
+    assert_difference 'Cv.count', +1 do
+      @user.update_cv! @user.cvs.build(markdown: 'blah blah')
+      assert_equal 'blah blah', @user.current_cv.markdown
+    end
+  end
+
+  test "update_cv creates new 'revision' when previous revisions are already present" do
+    assert @user.cvs.count > 1
+    assert_difference 'Cv.count', +1 do
+      @user.update_cv! @user.cvs.build(markdown: 'blah blah')
+      assert_equal 'blah blah', @user.current_cv.markdown
+    end
+  end
+
+  test "update_cv does not create a new cv if 'new' one is the same as the last one" do
+    dup = @user.current_cv.dup
+    refute_nil dup
+    assert_no_difference 'Cv.count' do
+      @user.update_cv! dup
+    end
+  end
 end

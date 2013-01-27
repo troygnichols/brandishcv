@@ -24,7 +24,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, :presence => true, :unless => Proc.new{ |user| user.password.blank? }
 
   def update_cv!(cv)
-    cvs << cv
+    prev = current_cv
+    cvs << cv unless prev && prev.markdown == cv.markdown
     self.save!
   end
 
