@@ -3,8 +3,8 @@ Brandishcv::Application.routes.draw do
     resources :users
     resources :password_resets
     resources :cvs, only: [:show, :edit, :update]
-    match 'signup' => 'signup#new', via: :get, as: 'signup'
-    match 'signup' => 'signup#create', via: :post, as: 'signup'
+    match 'signup' => 'signup#new', via: :get
+    match 'signup' => 'signup#create', via: :post
     match 'login' => 'sessions#new', via: :get
     match 'login' => 'sessions#create', as: 'login'
     match 'logout' => 'sessions#destroy', as: 'logout'
