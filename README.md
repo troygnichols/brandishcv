@@ -20,7 +20,7 @@ Anybody can read anybody else's CV, but (of course) you can only edit your own.
 
 ### How it works
 
-Pretty straightforward rails app with a sqlite3 database.
+Pretty straightforward rails app with a mysql database.
 
 - `has_secure_password` for authentication
 - [declarative authorization][2] for access control
