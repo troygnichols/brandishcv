@@ -14,13 +14,11 @@
   <% end %>
 
   <div class="field">
-    <%= label_tag :new_password %>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password, placeholder: 'New password' %>
   </div>
 
   <div class="field">
-    <%= label_tag :confirm_password %>
-    <%= password_field_tag :password_confirmation %>
+    <%= password_field_tag :password_confirmation, placeholder: 'Confirm password' %>
   </div>
 
   <div>
