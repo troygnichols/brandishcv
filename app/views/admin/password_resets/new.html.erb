@@ -1,0 +1,9 @@
+
+<h1>Lost password?</h1>
+
+<%= form_tag admin_password_resets_path, method: :post do %>
+  <%= label_tag :email_address %>
+  <%= text_field_tag :email, params[:email] %>
+  <br/>
+  <%= submit_tag 'Reset my password', class: "btn btn-large btn-primary" %>
+<% end %>

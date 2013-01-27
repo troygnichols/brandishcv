@@ -128,4 +128,20 @@ class UserTest < ActiveSupport::TestCase
       @user.update_cv! dup
     end
   end
+
+  test "send password email" do
+    time = Time.zone.now
+    @user.send_password_reset
+    assert @user.password_reset_sent_at > time
+    refute ActionMailer::Base.deliveries.empty?, "password reset email wasn't (fake) sent!"
+    email = ActionMailer::Base.deliveries.last
+    assert_equal [@user.email], email.to
+    assert_equal "Password Reset Requested", email.subject
+  end
+
+  test "generate_token generates a unique token for the specified column and returns the user_account" do
+    @user.remember_token = nil
+    assert_equal @user, @user.generate_token(:remember_token)
+    refute_nil @user.remember_token
+  end
 end

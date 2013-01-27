@@ -34,4 +34,20 @@ Brandishcv::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Email config ...
+
+  # Whether we care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = true
+
+  # really send mail?
+  config.action_mailer.perform_deliveries = true
+
+  # you need the mailcatcher gem to see the emails
+  # https://github.com/sj26/mailcatcher
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
+  default_url_options[:host] = 'localhost'
+  default_url_options[:port] = '3000'
 end

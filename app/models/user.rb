@@ -1,5 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :admin, :password, :password_confirmation, :password_reset_token
+  attr_accessible(
+      :username,
+      :email,
+      :admin,
+      :password,
+      :password_confirmation
+  )
 
   has_secure_password
 
@@ -39,6 +45,27 @@ class User < ActiveRecord::Base
     roles
   end
 
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+    self
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+
+  def reset_password(new_password, new_confirmation)
+    raise PasswordResetExpired if password_reset_sent_at < 2.hours.ago
+    self.password = new_password
+    self.password_confirmation = new_confirmation
+    save
+  end
+
   def to_s
     username || "[no username]"
   end
@@ -61,6 +88,8 @@ class User < ActiveRecord::Base
     end
 
     def create_remember_token
-      self.remember_token ||= SecureRandom.urlsafe_base64
+      self.remember_token ||= generate_token(:remember_token)
     end
 end
+
+class PasswordResetExpired < Exception; end
