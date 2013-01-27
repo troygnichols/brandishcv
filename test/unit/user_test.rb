@@ -144,4 +144,24 @@ class UserTest < ActiveSupport::TestCase
     assert_equal @user, @user.generate_token(:remember_token)
     refute_nil @user.remember_token
   end
+
+  test "creates remember_token on save new user" do
+    newuser = User.new(email: 'newuser@somewhere.com', username: 'newuser',
+                       password: 'mypassword', password_confirmation: 'mypassword')
+    assert_nil newuser.remember_token
+    assert_difference 'User.count', +1 do
+      newuser.save!
+      refute_nil newuser.remember_token
+      refute_nil newuser.reload.remember_token
+    end
+  end
+
+  test "does not change remember_token if already exists" do
+    remember_token = @user.remember_token
+    refute_nil remember_token
+    @user.username = 'newusername'
+    @user.save!
+    assert_equal 'newusername', @user.reload.username
+    assert_equal remember_token, @user.remember_token
+  end
 end

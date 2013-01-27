@@ -6,27 +6,32 @@ bruce_lee:
   username: brucelee
   email: bruce@jkd.org
   password_digest: <%= pwd_digest %>
+  remember_token: <%= SecureRandom.urlsafe_base64 %>
 
 ip_man:
   admin: false
   username: ipman
   email: ip@wingchun.org
   password_digest: <%= pwd_digest %>
+  remember_token: <%= SecureRandom.urlsafe_base64 %>
 
 chuck_norris:
   admin: false
   username: chuck
   email: chuck@deltaforce.gov
   password_digest: <%= pwd_digest %>
+  remember_token: <%= SecureRandom.urlsafe_base64 %>
 
 jackie_chan:
   admin: false
   username: jackiechan
   email: jackie@drunkenmasters.com
   password_digest: <%= pwd_digest %>
+  remember_token: <%= SecureRandom.urlsafe_base64 %>
 
 admin:
   admin: true
   username: owner
   email: admin@brandishcv.net
   password_digest: <%= pwd_digest %>
+  remember_token: <%= SecureRandom.urlsafe_base64 %>
