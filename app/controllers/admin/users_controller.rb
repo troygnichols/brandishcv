@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  filter_resource_access
+
   def index
     @users = User.all
     respond_to do |format|
@@ -8,7 +10,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
     respond_to do |format|
       format.html
       format.json{ render json: @user }
@@ -16,7 +17,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
         format.html { redirect_to show_cv_path(@user.username), notice: 'User created successfully' }
@@ -29,7 +29,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     respond_to do |format|
       format.html
       format.json { render json: @user }
@@ -37,7 +36,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
     respond_to do |format|
       format.html
       format.json { render json: @user }
@@ -45,7 +43,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to show_cv_path(@user.username), notice: 'User updated successfully' }
@@ -58,7 +55,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
       format.html { redirect_to admin_users_url }

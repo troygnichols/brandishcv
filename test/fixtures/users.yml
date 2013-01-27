@@ -27,6 +27,6 @@ jackie_chan:
 
 admin:
   admin: true
-  username: admin
+  username: owner
   email: admin@brandishcv.net
   password_digest: <%= pwd_digest %>

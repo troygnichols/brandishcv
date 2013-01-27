@@ -8,4 +8,9 @@ module CustomAssertions
     errors = model.errors.full_messages
     assert errors.include?(msg), "Wrong errors(s): #{errors}, expected: #{msg}"
   end
+
+  def assert_auth_failed
+    assert_equal "Access denied.", flash[:error], "Expected access denied flash message, but was: #{flash[:error]}"
+    assert_redirected_to root_path
+  end
 end

@@ -1,7 +1,7 @@
 Brandishcv::Application.routes.draw do
   namespace :admin do
     resources :users
-    resources :cvs
+    resources :cvs, only: [:show, :edit, :update]
     match 'signup' => 'signup#new', via: :get, as: 'signup'
     match 'signup' => 'signup#create', via: :post, as: 'signup'
     match 'login' => 'sessions#new', via: :get

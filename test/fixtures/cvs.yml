@@ -13,4 +13,10 @@ bruce_lee_3_days_ago:
   user: bruce_lee
   markdown: CV from 3 days ago
   created_at: <%= 3.days.ago %>
+
+
+admin_current:
+  user: admin
+  markdown: I am the admin user
+  created_at: <%= 10.days.ago %>
   

@@ -23,14 +23,14 @@ Anybody can read anybody else's CV, but (of course) you can only edit your own.
 Pretty straightforward rails app with a sqlite3 database.
 
 - `has_secure_password` for authentication
-- [cancan][2] for authorization
+- [declarative authorization][2] for access control
 - [pagedown/wmd][3] for editing markdown in the the browser
 - [redcarpet][4] for rendering markdown on the server
 - deployed on Ubuntu linux with [phusion passenger][5] and apache2
 
 
-  [1]: http://50.19.119.221/
-  [2]: https://github.com/ryanb/cancan
+  [1]: http://brandishcv.net/
+  [2]: https://github.com/stffn/declarative_authorization/
   [3]: http://code.google.com/p/pagedown/
   [4]: https://github.com/vmg/redcarpet
   [5]: https://www.phusionpassenger.com/

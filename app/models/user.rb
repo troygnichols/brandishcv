@@ -32,8 +32,14 @@ class User < ActiveRecord::Base
     cvs.order("cvs.created_at desc").limit(1).first
   end
 
+  def role_symbols
+    roles = [:user]
+    roles << :admin if admin?
+    roles
+  end
+
   def to_s
-    username
+    username || "[no username]"
   end
 
   private
