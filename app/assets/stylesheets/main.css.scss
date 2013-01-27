@@ -53,3 +53,12 @@ table.resources, table.resources th, table.resources td {
 table.resources th.actions {
   width: 140px;
 }
+
+
+.footer-main {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;   /* Height of the footer */
+  background: #666;
+}
