@@ -14,9 +14,19 @@
 <div class="home-container">
   <h2>Welcome to brandishcv.net</h2>
 
-  <p>You can post your CV or resume here and everyone can see it.</p>
+  <div class="dictionary">
+    <blockquote>
+      <p>brandish: to exhibit in an ostentatious or aggressive manner<p>
+      <small>Merriam-Webster</small>
+    </blockquote>
+  </div>
 
-  <p><%= link_to 'Get Started Now!', admin_signup_path, class: "btn btn-large" %></p>
+  <p>
+    You can post your CV or resume here and everyone can see it.
+    <br/>Maybe someone will even hire you.
+  </p>
+
+  <p><%= link_to "OK let's get started!", admin_signup_path, class: "btn btn-large" %></p>
 
   <%# TODO: should randomly select a user to show %>
   <p><%= link_to 'See an example...', show_cv_path('troynichols') %></p>
