@@ -1,0 +1,19 @@
+<table class="datatable" data-source="<%= data_source %>">
+  <thead>
+    <tr>
+      <% fields.each do |field| %>
+        <th><%= field.titleize %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody></tbody>
+  <% if search_columns %>
+      <tfoot>
+      <tr>
+        <% fields.each do |field| %>
+            <td><input type="text" placeholder="Search <%= field %>"/></td>
+        <% end %>
+      </tr>
+      </tfoot>
+  <% end %>
+</table>

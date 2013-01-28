@@ -63,8 +63,18 @@ table.resources th.actions {
   width: 140px;
 }
 
-footer {
-  height: 75px;
-  background: #666;
+
+/* datatables customization */
+
+.dataTable tr {
+  color: black;
+}
+
+.dataTable th {
+  background-color: #F5F6CE;
+}
+
+.dataTable tfoot input {
+  width: 100%;
 }
 

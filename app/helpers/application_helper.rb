@@ -4,6 +4,13 @@ module ApplicationHelper
     markdown_renderer.render(text).html_safe
   end
 
+  def datatable_for(entity_type, opts = {})
+    route = { controller: 'datatables', action: entity_type }.merge(opts[:extra_params] || {})
+    render 'datatables/datatable', entity_type: entity_type, fields: opts[:fields],
+           data_source: opts[:data_source] || url_for(route),
+           search_columns: opts[:search_columns]
+  end
+
   private
 
     def markdown_renderer

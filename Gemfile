@@ -18,6 +18,8 @@ group :test do
 end
 
 gem 'jquery-rails'
+gem 'jquery-datatables-rails'
 gem 'redcarpet'
 gem 'bcrypt-ruby'
 gem 'declarative_authorization'
+gem 'kaminari'

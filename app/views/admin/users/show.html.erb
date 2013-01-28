@@ -8,4 +8,8 @@
   <b>Email:</b> <%= @user.email %>
 </p>
 
+<%= link_to 'Show CV', show_cv_path(@user.username) %>
+
+<br/>
+
 <%= link_to 'Back', admin_users_path %>

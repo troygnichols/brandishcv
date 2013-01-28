@@ -12,4 +12,5 @@
  *= require_directory .
  *= require bootstrap/bootstrap-responsive
  *= require bootstrap/bootstrap
+ *= require dataTables/jquery.dataTables
  */
