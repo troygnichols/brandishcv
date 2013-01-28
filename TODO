@@ -1,0 +1,10 @@
+# TODO
+
+---
+
+- implement conversion to docx and pdf in the UI, using pandoc
+- API to convert to arbitrary formats that pandoc supports (xml, json, latex, whatever)
+- add IP address to users table and record IP on login
+- record login times
+- analytics with ip gelocation and maps and stuff
+- about page
