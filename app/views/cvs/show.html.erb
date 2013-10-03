@@ -15,7 +15,8 @@
 <% else %>
     <div class="pull-right">
       <%= link_to 'PDF', export_pdf_path %> |
-      <%= link_to 'Microsoft Word', export_docx_path %>
+      <%= link_to 'Microsoft Word', export_docx_path %> |
+      <%= link_to 'Markdown', export_markdown_path %>
     </div>
     <div class="cv-container">
       <%= markdown @cv.markdown %>

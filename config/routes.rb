@@ -20,4 +20,5 @@ Brandishcv::Application.routes.draw do
 
   match ':username/pdf' => 'pdf_exports#generate', as: 'export_pdf'
   match ':username/docx' => 'docx_exports#generate', as: 'export_docx'
+  match ':username/markdown' => 'markdown_exports#generate', as: 'export_markdown'
 end
