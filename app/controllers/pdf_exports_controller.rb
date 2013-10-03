@@ -5,7 +5,7 @@ class PdfExportsController < ApplicationController
 
   def generate
     pdf = Pdf.from_markdown @user.current_cv
-    send_file pdf
+    send_file pdf, type: 'application/pdf', disposition: 'inline'
   end
 
   private
