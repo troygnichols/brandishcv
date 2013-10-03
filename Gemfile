@@ -11,6 +11,7 @@ end
 
 group :development do
   gem 'sanitize_email'
+  gem 'pry-debugger'
 end
 
 group :test do
