@@ -8,3 +8,4 @@
 - record login times
 - analytics with ip gelocation and maps and stuff
 - about page
+- maybe break up markdown storage into various fields: contact, object, experience, skills, etc to make them more easily searchable
