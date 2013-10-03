@@ -13,6 +13,9 @@
     <% end %>
   </div>
 <% else %>
+    <div class="pull-right">
+      <%= link_to 'Download PDF', export_pdf_path %>
+    </div>
     <div class="cv-container">
       <%= markdown @cv.markdown %>
     </div>

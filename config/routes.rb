@@ -17,4 +17,6 @@ Brandishcv::Application.routes.draw do
   match ':username' => 'cvs#show', as: 'show_cv'
   match ':username/edit' => 'cvs#edit', as: 'edit_cv'
   match ':username/update' => 'cvs#update', as: 'update_cv', only: :post
+
+  match ':username/pdf' => 'pdf_exports#generate', as: 'export_pdf'
 end
