@@ -44,7 +44,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @user.update_attributes(user_params)
+      if @user.update_attributes(params[:user])
         format.html { redirect_to show_cv_path(@user.username), notice: 'User updated successfully' }
         format.json { head :no_content }
       else
@@ -60,9 +60,5 @@ class Admin::UsersController < ApplicationController
       format.html { redirect_to admin_users_url }
       format.json { head :no_content }
     end
-  end
-
-  def user_params
-    params.require(:user).permit(:username, :email, :admin, :password, :password_confirmation)
   end
 end
