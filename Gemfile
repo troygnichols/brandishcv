@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2'
-gem 'mysql2', '0.3.18'
+gem 'sqlite3'
 
 group :assets do
   gem 'sass-rails'
@@ -11,10 +11,6 @@ end
 
 group :development do
   gem 'sanitize_email'
-end
-
-group :test do
-  gem 'sqlite3'
 end
 
 gem 'jquery-rails'

@@ -76,7 +76,6 @@ GEM
     mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    mysql2 (0.3.18)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
@@ -153,7 +152,6 @@ DEPENDENCIES
   jquery-datatables-rails
   jquery-rails
   kaminari
-  mysql2 (= 0.3.18)
   rails (= 4.2)
   rails_12factor
   redcarpet
