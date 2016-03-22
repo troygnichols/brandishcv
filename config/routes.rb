@@ -3,22 +3,22 @@ Brandishcv::Application.routes.draw do
     resources :users
     resources :password_resets
     resources :cvs, only: [:show, :edit, :update]
-    match 'signup' => 'signup#new', via: :get
-    match 'signup' => 'signup#create', via: :post
-    match 'login' => 'sessions#new', via: :get
-    match 'login' => 'sessions#create', as: 'login'
-    match 'logout' => 'sessions#destroy', as: 'logout'
-    match "datatables/:action" => "datatables"
-    match 'pages/:page' => 'pages#show'
+    get 'signup' => 'signup#new'
+    post 'signup' => 'signup#create'
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy', as: 'logout'
+    get "datatables/:action" => "datatables"
+    get 'pages/:page' => 'pages#show'
   end
 
   root :to => 'home#index'
 
-  match ':username' => 'cvs#show', as: 'show_cv'
-  match ':username/edit' => 'cvs#edit', as: 'edit_cv'
-  match ':username/update' => 'cvs#update', as: 'update_cv', only: :post
+  get ':username' => 'cvs#show', as: 'show_cv'
+  get ':username/edit' => 'cvs#edit', as: 'edit_cv'
+  post ':username/update' => 'cvs#update', as: 'update_cv'
 
-  match ':username/pdf' => 'pdf_exports#generate', as: 'export_pdf'
-  match ':username/docx' => 'docx_exports#generate', as: 'export_docx'
-  match ':username/markdown' => 'markdown_exports#generate', as: 'export_markdown'
+  get ':username/pdf' => 'pdf_exports#generate', as: 'export_pdf'
+  get ':username/docx' => 'docx_exports#generate', as: 'export_docx'
+  get ':username/markdown' => 'markdown_exports#generate', as: 'export_markdown'
 end

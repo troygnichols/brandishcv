@@ -1,12 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible(
-      :username,
-      :email,
-      :admin,
-      :password,
-      :password_confirmation
-  )
-
   has_secure_password
 
   has_many :cvs, dependent: :destroy

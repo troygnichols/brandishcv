@@ -4,7 +4,7 @@ class Admin::SignupController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     respond_to do |format|
       if @user.save
         log_in @user
@@ -15,5 +15,9 @@ class Admin::SignupController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :email, :admin, :password, :password_confirmation)
   end
 end

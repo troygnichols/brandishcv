@@ -77,7 +77,7 @@ class Admin::PasswordResetsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :edit
     refute @controller.logged_in?
-    assert_error_on assigns(:user), "Password doesn't match confirmation"
+    assert_error_on assigns(:user), "Password confirmation doesn't match Password"
   end
 
   test "update with valid password succeeds" do
