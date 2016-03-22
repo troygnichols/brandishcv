@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'mysql2'
+gem 'mysql2', '0.3.18'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -11,7 +11,6 @@ end
 
 group :development do
   gem 'sanitize_email'
-  gem 'pry-debugger'
 end
 
 group :test do

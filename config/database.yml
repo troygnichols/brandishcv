@@ -9,8 +9,7 @@ development:
   reconnect: false
   database: brandishcv_development
   pool: 5
-  username: brandishcv
-  password: brandishcv
+  username: root
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
