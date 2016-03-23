@@ -2,10 +2,10 @@ class UsersDatatable < AbstractDatatable
 
   def as_json(options = {})
     {
-        sEcho: params[:sEcho].to_i,
-        iTotalRecords: User.with_permissions_to(:read, context: :admin_users).count,
-        iTotalDisplayRecords: users.total_count,
-        aaData: data
+      sEcho: params[:sEcho].to_i,
+      iTotalRecords: User.with_permissions_to(:read, context: :admin_users).count,
+      iTotalDisplayRecords: users.total_count,
+      aaData: data
     }
   end
 
@@ -16,8 +16,8 @@ class UsersDatatable < AbstractDatatable
     def data
       users.map do |user|
         [
-            link_to(h(user.username), controller: 'users', action: 'show', id: user.id),
-            link_to(h(user.email), controller: 'users', action: 'show', id: user.id)
+          link_to(user.username, controller: 'users', action: 'show', id: user.id),
+          link_to(user.email, controller: 'users', action: 'show', id: user.id)
         ]
       end
     end

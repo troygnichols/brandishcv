@@ -11,7 +11,7 @@ class Admin::PasswordResetsControllerTest < ActionController::TestCase
 
   test "password reset request for non-existent user fakes sending message" do
     bad_email = 'bad@email.com'
-    refute User.find_by_email(bad_email)
+    refute User.find_by(email: bad_email)
     post :create, email: bad_email
     assert_response :success
     assert_template :show

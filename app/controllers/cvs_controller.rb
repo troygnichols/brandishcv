@@ -1,8 +1,8 @@
 class CvsController < ApplicationController
   filter_access_to :show, require: :read, context: :cvs
 
-  before_filter :load_user
-  before_filter :restrict_access, only: [:edit, :update]
+  before_action :load_user
+  before_action :restrict_access, only: [:edit, :update]
 
   def show
     @cv = @user.current_cv
@@ -21,7 +21,7 @@ class CvsController < ApplicationController
   private
 
     def load_user
-      @user = User.find_by_username!(params[:username])
+      @user = User.find_by!(username: params[:username])
     end
 
     def restrict_access

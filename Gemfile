@@ -11,6 +11,8 @@ end
 
 group :development do
   gem 'sanitize_email'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do
@@ -22,6 +24,6 @@ gem 'jquery-rails'
 gem 'jquery-datatables-rails'
 gem 'redcarpet'
 gem 'bcrypt-ruby'
-gem 'declarative_authorization'
 gem 'kaminari'
 gem 'foundation-rails'
+gem 'declarative_authorization', git: 'https://github.com/stffn/declarative_authorization.git', ref: '45e91af20'

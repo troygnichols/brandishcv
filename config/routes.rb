@@ -7,7 +7,7 @@ Brandishcv::Application.routes.draw do
     post 'signup' => 'signup#create'
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'
-    delete 'logout' => 'sessions#destroy', as: 'logout'
+    match 'logout' => 'sessions#destroy', as: 'logout', via: [:get, :delete]
     get "datatables/:action" => "datatables"
     get 'pages/:page' => 'pages#show'
   end
@@ -16,7 +16,7 @@ Brandishcv::Application.routes.draw do
 
   get ':username' => 'cvs#show', as: 'show_cv'
   get ':username/edit' => 'cvs#edit', as: 'edit_cv'
-  post ':username/update' => 'cvs#update', as: 'update_cv'
+  match ':username/update' => 'cvs#update', as: 'update_cv', via: [:post, :patch]
 
   get ':username/pdf' => 'pdf_exports#generate', as: 'export_pdf'
   get ':username/docx' => 'docx_exports#generate', as: 'export_docx'

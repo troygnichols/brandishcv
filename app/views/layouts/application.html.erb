@@ -4,15 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= yield :extra_stylesheets %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= yield :extra_scripts %>
+
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-
     <%= yield %>
 
+    <%= yield :inline_script %>
   </body>
 </html>

@@ -1,5 +1,5 @@
 class AbstractDatatable
-  delegate :params, :h, :link_to, :url_for, to: :@view
+  delegate :params, :link_to, :url_for, to: :@view
 
   def initialize(view)
     @view = view

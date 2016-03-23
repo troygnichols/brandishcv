@@ -36,7 +36,7 @@ module Admin::SessionsHelper
 
   def current_user
     # "memoize" the current user - only go to the database for it if @current_user is empty
-    @current_user ||= cookies[:remember_token].nil? ? nil :User.find_by_remember_token(cookies[:remember_token])
+    @current_user ||= cookies[:remember_token].nil? ? nil :User.find_by(remember_token: cookies[:remember_token])
   end
 
 end

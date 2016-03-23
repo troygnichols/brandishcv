@@ -9,11 +9,11 @@ class Admin::PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_password_reset_token!(params[:id])
+    @user = User.find_by!(password_reset_token: params[:id])
   end
 
   def update
-    @user = User.find_by_password_reset_token!(params[:id])
+    @user = User.find_by!(password_reset_token: params[:id])
     begin
       if @user.reset_password(params[:password], params[:password_confirmation])
         log_in @user
