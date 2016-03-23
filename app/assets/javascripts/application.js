@@ -12,9 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require dataTables/jquery.dataTables
 //= require bootstrap/bootstrap
 //= require_directory .
-
-$(function(){ $(document).foundation(); });
