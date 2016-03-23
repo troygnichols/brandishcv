@@ -1,32 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Brandish Your CV</title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= yield :extra_stylesheets %>
-  <%= javascript_include_tag "application" %>
-  <%= yield :extra_scripts %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="navbar-links">
-        <%= render 'layouts/header' %>
-        <%= yield :extra_nav %>
-      </div>
-    </div>
-  </div>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <div class="container">
-      <%= yield %>
-  </div>
+  <body>
 
-  <%= yield(:inline_script) %>
-</body>
+    <%= yield %>
+
+  </body>
 </html>
