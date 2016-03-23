@@ -43,4 +43,6 @@ Brandishcv::Application.configure do
 
   default_url_options[:host] = 'localhost'
   default_url_options[:port] = '3000'
+
+  config.eager_load = false
 end

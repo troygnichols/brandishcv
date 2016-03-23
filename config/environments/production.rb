@@ -77,4 +77,6 @@ Brandishcv::Application.configure do
 
   default_url_options[:host] = 'brandishcv.net'
   # default_url_options[:protocol] = 'https'
+
+  config.eager_load = true
 end

@@ -33,4 +33,6 @@ Brandishcv::Application.configure do
   config.active_support.deprecation = :stderr
 
   default_url_options[:host] = 'test.host'
+
+  config.eager_load = false
 end
