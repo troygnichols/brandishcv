@@ -11,28 +11,29 @@
     <% end %>
 <% end %>
 
-<div class="home-container">
-  <h2>Welcome to The CV Brandisher</h2>
+<div class="row">
+  <div class="columns small-6 small-offset-3">
+    <h2>Welcome to The CV Brandisher</h2>
 
-  <div class="dictionary">
-    <blockquote>
-      <p><strong>brandish</strong>: to exhibit in an ostentatious or aggressive manner<p>
-      <small>Merriam-Webster</small>
-    </blockquote>
+    <div class="dictionary">
+      <blockquote>
+        <p><strong>brandish</strong>: to exhibit in an ostentatious or aggressive manner<p>
+        <small>Merriam-Webster</small>
+      </blockquote>
+    </div>
+
+    <p>
+      You can post your CV or resume here and everyone can see it.
+      <br/>Maybe someone will even hire you.
+    </p>
+
+    <hr>
+
+    <center>
+      <p><%= link_to "Yes! Let's do this!", admin_signup_path, class: "btn btn-default btn-lg" %></p>
+
+      <%# TODO: should randomly select a user to show %>
+      <p><%= link_to 'See an example...', show_cv_path('troynichols') %></p>
+    </center>
   </div>
-
-  <p>
-    You can post your CV or resume here and everyone can see it.
-    <br/>Maybe someone will even hire you.
-  </p>
-
-  <hr>
-
-  <center>
-    <p><%= link_to "Yes! Let's do this!", admin_signup_path, class: "btn btn-default btn-lg" %></p>
-
-    <%# TODO: should randomly select a user to show %>
-    <p><%= link_to 'See an example...', show_cv_path('troynichols') %></p>
-  </center>
 </div>
-
