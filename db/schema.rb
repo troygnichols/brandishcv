@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130127020220) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cvs", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.text     "markdown"
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20130127020220) do
     t.datetime "password_reset_sent_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

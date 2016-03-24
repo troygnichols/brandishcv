@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def random_username
-    User.select(:username).joins(:cvs).sample.username
+    User.select(:username).joins(:cvs).sample.try(:username)
   end
 
   private

@@ -56,7 +56,9 @@
       <div class="columns small-6 small-offset-3">
         <%= link_to "Yes! Let's do this!", admin_signup_path, class: "button large expanded" %>
 
-        <p><%= link_to 'See an example...', show_cv_path(random_username) %></p>
+        <% if @random_username %>
+          <p><%= link_to 'See an example...', show_cv_path(@random_username) %></p>
+        <% end %>
       </div>
     </div>
 
