@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  before_filter { |controller| Authorization.current_user = controller.current_user }
+  before_action { |controller| Authorization.current_user = controller.current_user }
 
   def permission_denied
     logger.info "Access denied for user: #{current_user}, on: #{params[:controller]}:#{params[:action]}"
