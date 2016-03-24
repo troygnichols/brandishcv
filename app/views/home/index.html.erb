@@ -1,7 +1,7 @@
 <% unless logged_in? %>
   <%= content_for :header do %>
     <div class="top-bar">
-      <%= image_tag :orange_cat, class: 'navbar-logo float-left' %>
+      <%= image_tag 'orange_cat.png', class: 'navbar-logo float-left' %>
       <div class="row">
         <div class="columns small-10 small-offset-1">
           <%= form_tag admin_login_path, class: 'navbar-login-form' do %>
