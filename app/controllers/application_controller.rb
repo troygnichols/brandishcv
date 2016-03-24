@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_action { |controller| Authorization.current_user = controller.current_user }
+  before_action :set_headers
 
   def permission_denied
     logger.info "Access denied for user: #{current_user}, on: #{params[:controller]}:#{params[:action]}"
@@ -28,5 +29,9 @@ class ApplicationController < ActionController::Base
 
     def per_page
       params[:per_page] || DEFAULT_PER_PAGE
+    end
+
+    def set_headers
+      headers['X-Frame-Options'] = 'ALLOWALL'
     end
 end

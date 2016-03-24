@@ -3,7 +3,6 @@ class CvsController < ApplicationController
 
   before_action :load_user
   before_action :restrict_access, only: [:edit, :update]
-  before_action :set_headers_allow_x_frame, only: :show
 
   def show
     @cv = @user.current_cv
@@ -39,9 +38,5 @@ class CvsController < ApplicationController
 
 ### Your info here...
       EOS
-    end
-
-    def set_headers_allow_x_frame
-      headers['X-Frame-Options'] = 'ALLOWALL'
     end
 end
