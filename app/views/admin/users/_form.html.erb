@@ -1,34 +1,23 @@
+<% if @user.errors.any? %>
+  <div class="callout alert">
+    <h3>Whoops...</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for [:admin, @user] do |f| %>
-    <% if @user.errors.any? %>
-        <div id="error_explanation" class="alert alert-error">
-          <h3>Whoops...</h3>
-          <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+  <%= f.label :username %>
+  <%= f.text_field :username, autocomplete:"off" %>
+  <%= f.label :email %>
+  <%= f.text_field :email, autocomplete:"off" %>
+  <%= f.password_field :password, autocomplete:"off", placeholder: 'Password', required: true %>
+  <%= f.password_field :password_confirmation, autocomplete:"off", placeholder: 'Password (again)', required: true %>
 
-    <div class="field">
-      <%= f.label :username %>
-      <%= f.text_field :username, autocomplete:"off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.text_field :email, autocomplete:"off" %>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password, autocomplete:"off", placeholder: 'Password' %>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete:"off", placeholder: 'Password (again)' %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit class: 'btn btn-large' %>
-    </div>
+  <button class="button">
+    <%= fa_icon 'save', text: 'Save' %>
+  </button>
 <% end %>

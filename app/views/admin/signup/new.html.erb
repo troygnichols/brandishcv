@@ -1,36 +1,27 @@
-<div class="signup-container">
-    <h3>Join or perish!</h3>
+<div class="row">
+  <div class="column small-6 small-offset-3">
+    <br>
+    <br>
+
+    <h2>Join or perish!</h2>
+
+    <% if @user.errors.any? %>
+      <div class="callout alert">
+        <h3>Whoops...</h3>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <%= form_for @user, url: admin_signup_path do |f| %>
-        <% if @user.errors.any? %>
-            <div id="error_explanation" class="alert alert-error">
-              <h3>Whoops...</h3>
-              <ul>
-                <% @user.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
-
-        <div class="field">
-          <%= f.text_field :username, autocomplete:"off", placeholder: 'Username' %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :email, autocomplete:"off", placeholder: 'Email' %>
-        </div>
-
-        <div class="field">
-          <%= f.password_field :password, autocomplete:"off", placeholder: 'Password' %>
-        </div>
-
-        <div class="field">
-          <%= f.password_field :password_confirmation, autocomplete:"off", placeholder: 'Password (confirm)' %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit value: "Sign up", class: 'btn btn-large' %>
-        </div>
-  <% end %>
+      <%= f.text_field :username, autocomplete:"off", placeholder: 'Username' %>
+      <%= f.text_field :email, autocomplete:"off", placeholder: 'Email' %>
+      <%= f.password_field :password, autocomplete:"off", placeholder: 'Password' %>
+      <%= f.password_field :password_confirmation, autocomplete:"off", placeholder: 'Password (confirm)' %>
+      <%= f.submit value: 'Sign up', class: 'button large' %>
+    <% end %>
+  </div>
 </div>

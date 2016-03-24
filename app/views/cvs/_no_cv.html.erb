@@ -1,0 +1,20 @@
+<br>
+<br>
+<br>
+
+<% if @user == current_user  %>
+
+  <center>
+    <h2>You haven't created your CV yet</h2>
+    <hr>
+    <%= link_to 'Create your CV now', edit_cv_path(@user.username), class: 'button large success' %>
+  </center>
+
+<% else %>
+
+  <center>
+    <h2>This user has not created a CV yet.</h2>
+    Check back soon!
+  </center>
+
+<% end %>

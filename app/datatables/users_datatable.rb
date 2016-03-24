@@ -14,7 +14,7 @@ class UsersDatatable < AbstractDatatable
     COLUMNS = %w[username email]
 
     def data
-      users.map do |user|
+      users.search(params[:sSearch]).map do |user|
         [
           link_to(user.username, controller: 'users', action: 'show', id: user.id),
           link_to(user.email, controller: 'users', action: 'show', id: user.id)

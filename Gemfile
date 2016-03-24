@@ -27,3 +27,4 @@ gem 'bcrypt-ruby'
 gem 'kaminari'
 gem 'foundation-rails'
 gem 'declarative_authorization', git: 'https://github.com/stffn/declarative_authorization.git', ref: '45e91af20'
+gem "font-awesome-rails"

@@ -1,14 +1,15 @@
-<div class="user-container">
-  <h2>User Profile</h2>
-  <%= render 'form' %>
+<div class="row">
+  <div class="columns small-6 small-offset-3">
+    <h2>User Profile</h2>
+    <%= render 'form' %>
+  </div>
 </div>
 
 <%= content_for :inline_script do %>
     <script type="text/javascript">
       $(function() {
           var changePwd = $('<div class="change-password">');
-          changePwd.append($('<input name="change_password" type="checkbox">'));
-          changePwd.append('Change password?');
+          changePwd.append($('<label><input name="change_password" type="checkbox"> Change password</label>'));
           $('#user_password').before(changePwd);
 
           $('.change-password input[type=checkbox]').click(setChangePasswordState);

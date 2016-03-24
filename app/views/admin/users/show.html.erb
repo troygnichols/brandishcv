@@ -1,15 +1,34 @@
-<h2>User details</h2>
+<br>
 
-<p>
-  <b>Username: </b> <%= @user.username %>
-</p>
+<div class="row">
+  <div class="columns small-8 small-offset-2">
+    <h2 class="float-left">User details</h2>
 
-<p>
-  <b>Email:</b> <%= @user.email %>
-</p>
+    <%= link_to show_cv_path(@user.username), class: 'button float-right' do %>
+      <%= fa_icon 'file-text', text: 'View CV' %>
+    <% end %>
 
-<%= link_to 'Show CV', show_cv_path(@user.username) %>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>Username</strong></td>
+          <td><%= @user.username %></td>
+        </tr>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td><%= @user.email %></td>
+        </tr>
+      </tbody>
+    </table>
 
-<br/>
+    <%= link_to edit_admin_user_path(@user), class: 'button' do %>
+      <%= fa_icon 'edit', text: 'Edit User' %>
+    <% end %>
 
-<%= link_to 'Back', admin_users_path %>
+    <hr>
+
+    <%= link_to admin_users_path do %>
+      <%= fa_icon 'users', text: 'Back to Users' %>
+    <% end %>
+  </div>
+</div>

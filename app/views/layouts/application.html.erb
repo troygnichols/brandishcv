@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : 'Brandish CV' %></title>
 
     <%= stylesheet_link_tag    'application' %>
     <%= yield :extra_stylesheets %>
@@ -16,6 +16,16 @@
   </head>
 
   <body>
+    <% if content_for?(:header) %>
+      <%= yield :header %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "flash-message callout #{flash_css_class_for(key)}") %>
+    <% end %>
+
     <%= yield %>
 
     <%= yield :inline_script %>

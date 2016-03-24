@@ -8,7 +8,7 @@ class Admin::SignupController < ApplicationController
     respond_to do |format|
       if @user.save
         log_in @user
-        format.html { redirect_to show_cv_path(@user.username) }
+        format.html { redirect_to show_cv_path(@user.username), notice: 'Created user account successfully' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: 'new' }

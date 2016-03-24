@@ -11,6 +11,20 @@ module ApplicationHelper
            search_columns: opts[:search_columns]
   end
 
+  def flash_css_class_for(kind)
+    case kind
+    when 'notice'
+      'success'
+    when 'error'
+      'alert'
+    else kind
+    end
+  end
+
+  def random_username
+    User.select(:username).joins(:cvs).sample.username
+  end
+
   private
 
     def markdown_renderer

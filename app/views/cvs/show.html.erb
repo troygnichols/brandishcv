@@ -1,18 +1,19 @@
 <% if logged_in? %>
-    <%= content_for :extra_nav do %>
-        | <%= link_to 'Edit CV', edit_cv_path(current_user.username) %>
-    <% end %>
+  <%= content_for :extra_nav do %>
+    <li>
+      <%= link_to edit_cv_path(current_user.username) do %>
+        <%= fa_icon 'edit 2x', text: 'Edit CV' %>
+      <% end %>
+    </li>
+  <% end %>
 <% end %>
 
-<% if @cv.nil? %>
-  <div class="no-cv">
-    <% if @user == current_user  %>
-        You haven't created your CV yet.  <%= link_to 'Create it now', edit_cv_path(@user.username) %>
-    <% else %>
-        This user has not created their CV yet.  Check back soon!
-    <% end %>
-  </div>
-<% else %>
+<div class="row">
+  <div class="columns small-8 small-offset-2">
+
+    <% if @cv.nil? %>
+      <%= render 'no_cv' %>
+  <% else %>
     <div class="pull-right">
       <%= link_to 'PDF', export_pdf_path %> |
       <%= link_to 'Microsoft Word', export_docx_path %> |
@@ -21,4 +22,7 @@
     <div class="cv-container">
       <%= markdown @cv.markdown %>
     </div>
-<% end %>
+  <% end %>
+
+</div>
+</div>

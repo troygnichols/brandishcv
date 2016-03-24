@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
   validates :password, :length => { minimum: 10 }, :allow_nil => true
   validates :password_confirmation, :presence => true, :unless => Proc.new{ |user| user.password.blank? }
 
+  scope :search, ->(term) {
+    return if term.blank?
+    where('username LIKE :term OR email LIKE :term', term: "%#{term}%")
+  }
+
   def update_cv!(cv)
     prev = current_cv
     cvs << cv unless prev && prev.markdown == cv.markdown

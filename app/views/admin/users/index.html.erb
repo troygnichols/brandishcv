@@ -6,9 +6,13 @@
     </script>
 <% end %>
 
-<h2>Users</h2>
+<div class="row">
+  <div class="columns">
+    <h2>Users</h2>
 
-<%= datatable_for 'users', fields: %w[Username Email], search_columns: true %>
+    <%= datatable_for 'users', fields: %w[Username Email], search_columns: true %>
 
-<br/>
-<%= link_to 'New User', new_admin_user_path %>
+    <br/>
+    <%= link_to 'New User', new_admin_user_path %>
+  </div>
+</div>

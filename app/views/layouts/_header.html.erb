@@ -1,9 +1,43 @@
-<%= link_to 'Home', root_path %>
-<% if logged_in? %>
-    | <%= link_to 'Profile', edit_admin_user_path(current_user) %>
-    <div class="session-container">
-      <%= link_to 'Logout', admin_logout_path %>
-    </div>
-<% else %>
-     | <%= link_to 'Login', admin_login_path %>
-<% end %>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li><%= image_tag :orange_cat, class: 'navbar-logo' %></li>
+      <li>
+        <%= link_to root_path do %>
+          <%= fa_icon 'home 2x', text: 'Home' %>
+        <% end %>
+      </li>
+      <li></li>
+      <%= yield :extra_nav %>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <% if logged_in? %>
+        <% if current_user.admin? %>
+          <li>
+            <%= link_to admin_users_path do %>
+              <%= fa_icon 'gear 2x', text: 'Admin' %>
+            <% end %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to edit_admin_user_path(current_user) do %>
+            <%= fa_icon 'user 2x', text: 'Profile' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_logout_path do %>
+            <%= fa_icon 'sign-out 2x', text: 'Logout' %>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to admin_login_path do %>
+            <%= fa_icon 'sign-in 2x', text: 'Login' %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
