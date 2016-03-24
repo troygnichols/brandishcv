@@ -13,16 +13,31 @@
 
     <% if @cv.nil? %>
       <%= render 'no_cv' %>
-  <% else %>
-    <div class="pull-right">
-      <%= link_to 'PDF', export_pdf_path %> |
-      <%= link_to 'Microsoft Word', export_docx_path %> |
-      <%= link_to 'Markdown', export_markdown_path %>
-    </div>
-    <div class="cv-container">
-      <%= markdown @cv.markdown %>
-    </div>
-  <% end %>
+    <% else %>
 
-</div>
+      <div class="float-right">
+        <br>
+
+        <%= link_to export_pdf_path, class: 'button small' do %>
+          <%= fa_icon 'file-pdf-o', text: 'PDF' %>
+        <% end %>
+
+        <%= link_to export_docx_path, class: 'button small' do %>
+          <%= fa_icon 'file-word-o', text: 'Microsoft Word' %>
+        <% end %>
+
+        <%= link_to export_markdown_path, class: 'button small' do %>
+          <%= fa_icon 'github', text: 'Markdown' %>
+        <% end %>
+      </div>
+
+      <hr>
+
+      <%= markdown @cv.markdown %>
+
+      <hr>
+
+    <% end %>
+
+  </div>
 </div>
