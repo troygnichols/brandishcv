@@ -5,7 +5,7 @@ class DocxExportsController < ApplicationController
 
   def generate
     docx = Docx.from_markdown @user.current_cv
-    send_file docx, type: 'application/doc', disposition: 'attachment'
+    send_file docx, type: 'application/doc', disposition: 'inline'
   end
 
   private

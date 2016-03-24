@@ -6,7 +6,7 @@ class MarkdownExportsController < ApplicationController
     File.open md_file, 'w' do |md_file|
       md_file.puts @user.current_cv.markdown
     end
-    send_file md_file, type: 'text/x-markdown', disposition: 'inline'
+    send_file md_file, type: 'text/x-markdown', disposition: 'attachment'
   end
 
   private
