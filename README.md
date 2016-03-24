@@ -1,9 +1,9 @@
-# brandishcv.net
+# The Resume Brandisher
 
 Example rails app for displaying your credentials in public, for when it's time to go around begging for a job.
 
 ### Deployed at
-http:/cv.tgn.io
+[http://cv.tgn.io](http://cv.tgn.io)
 
 ### What it does
 
@@ -24,7 +24,8 @@ Anybody can read anybody else's CV, you can only edit your own.
 - [declarative authorization][2] for access control
 - [pagedown/wmd][3] for editing markdown in the the browser
 - [redcarpet][4] for rendering markdown on the server
-- deployed on Ubuntu linux with [unicorn][5] and apache2
+- [pandoc][6] for creating PDF and MS Word docs
+- deployed on Ubuntu linux with [unicorn][5] and nginx
 
 
   [1]: http://cv.tgn.io/
@@ -32,3 +33,4 @@ Anybody can read anybody else's CV, you can only edit your own.
   [3]: http://code.google.com/p/pagedown/
   [4]: https://github.com/vmg/redcarpet
   [5]: http://unicorn.bogomips.org/
+  [6]: http://pandoc.org/
