@@ -25,6 +25,7 @@ Anybody can read anybody else's CV, you can only edit your own.
 - [pagedown/wmd][3] for editing markdown in the the browser
 - [redcarpet][4] for rendering markdown on the server
 - [pandoc][6] for creating PDF and MS Word docs
+- Postgres database
 - deployed on Ubuntu linux with [unicorn][5] and nginx
 
 
