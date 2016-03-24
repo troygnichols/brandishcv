@@ -22,6 +22,8 @@
       <%= render 'layouts/header' %>
     <% end %>
 
+    <%= render 'shared/github_banner' %>
+
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "flash-message callout #{flash_css_class_for(key)}") %>
     <% end %>
